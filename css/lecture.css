@@ -1,0 +1,15 @@
+.ui-icon-myIcon:after {
+    background-image: url("../theme/icons/ic_help_white_18dp_2x.png");
+}
+#qbutton {
+    width: 100%;
+}
+#qform {
+    display: none;
+}
+#footer {
+    text-align: center;
+}
+#footer form {
+    text-align: left;
+}
