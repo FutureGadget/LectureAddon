@@ -1,0 +1,54 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title question
+    // 모바일 환경에 최적화 하기 위해 확대,축소기능 제한
+    meta(name='viewport', content='width=device-width, initial-scale=1.0,\
+    maximum-scale=1.0, minimum-scale=1.0,\
+    user-scalable=no')
+    link(rel='stylesheet', href='https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css')
+    link(rel='stylesheet', href='external_plugins/jqueryte/jquery-te-1.4.0.css')
+    link(rel='stylesheet', href='stylesheets/question.css')
+  body
+    #home(data-role='page')
+      div(data-role='header', data-position='fixed')
+        h1 Title
+        a(href='#', data-rel='back') 목록으로가기
+      #content(data-role='content')
+        //
+          Todo
+          1. get data from DBMS based on the question number
+          2. construct view according to the following structure
+        h1 Title
+        p
+          | 가나 다라 마바사아 자차카타파하 가나 자차카타파하 가나다
+          | 가나 다라 마바사아 자차카타다라 마바사아 자차카타파하다라 마바사아 자차카타파하
+          | 다라 마바사아 자차다라 마바사아 자차카타파하 마바사아 자차카타다라 마바사아 자차카타파하다라 마바사아 자차카타파하하
+          | 다라 마바사아 자차카타파하다라 마바사파하다라 마바사파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하
+          | 다라 마바사아 자차카타파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하
+          | 파다라 마바사아 자차카타파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하 가나다가나 다라 마바사아 자차카타파하
+          | 가나다
+        ul(data-role='listview')
+          li
+            a(href='')
+              | 조건휘 : 가나 다라마바사 아 자 차카타파 하 가나다라마 바사아자 차카 타 파하가 나다
+            a(href='', data-icon='delete')
+          li
+            a(href='')
+              | 조건휘 : 가나 다라마바사 아 자 차카타파 하 가나다라마 바사아자 차카 타 파하가 나다
+            a(href='')
+          li
+            a(href='')
+              | 조건휘 : 가나 다라마바사 아 자 차카타파 하 가나다라마 바사아자 차카 타 파하가 나다
+            a(href='')
+      #footer(data-role='footer', data-position='fixed')
+        a#qbutton(data-role='button', href='#', data-icon='check', data-iconpos='top') 댓글달기
+        form#qform.hidden
+          .ui-field-contain
+            textarea#info.textEditor
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js')
+    script(src='external_plugins/jqueryte/jquery-te-1.4.0.min.js', charset='utf-8')
+    script(src='javascripts/lecture.js')
+

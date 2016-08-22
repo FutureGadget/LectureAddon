@@ -1,0 +1,4 @@
+/*
+ Apply jqueryte
+ */
+$(".textEditor").jqte();
