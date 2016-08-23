@@ -10,10 +10,9 @@ var main_list = require('./routes/main_list');
 var main = require('./routes/main');
 var lecture = require('./routes/lecture');
 var question = require('./routes/question');
+var login = require('./routes/login');
 
 var app = express();
-
-app.locals.pretty = true;
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -24,6 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/login', login)
 app.use('/question', question);
 app.use('/lecture', lecture);
 app.use('/main_list', main_list);
