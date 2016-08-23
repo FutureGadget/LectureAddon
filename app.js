@@ -5,11 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var main_list = require('./routes/main_list');
-var main = require('./routes/main');
-var lecture = require('./routes/lecture');
-var question = require('./routes/question');
+// controllers
 var login = require('./routes/login');
 
 var app = express();
@@ -21,13 +17,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// Users can directly access to views (html files)
+app.use(express.static(path.join(__dirname, 'views')));
 
-app.use('/', routes);
-app.use('/login', login)
-app.use('/question', question);
-app.use('/lecture', lecture);
-app.use('/main_list', main_list);
-app.use('/main', main);
+// use controller app
+app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
