@@ -23,34 +23,48 @@
     <div data-role="contents">
         <form method="post" action="#">
             <div class="ui-field-contain">
-
-                <label>년도</label>
-                <select name="year" id="year" placeholder="2016">
-                    <option value="mon">2016</option>
-                    <option value="tue">2015</option>
-                    <option value="wed">2014</option>
-                </select>
-
-                <label>학기</label>
-                <select name="semester" id="semester">
+                <div data-role="fieldcontain">
+                    <label>년도</label>
+                    <select name="year" id="year" placeholder="2016">
+                        <option value="mon">2016</option>
+                        <option value="tue">2015</option>
+                        <option value="wed">2014</option>
+                    </select>
+                </div>
+                
+                <div data-role="fieldcontain">
+                    <label>학기</label>
+                    <select name="semester" id="semester">
                     <option value="1">1</option>
                     <option value="2">2</option>
                 </select>
+                </div>
 
-                <label>학수번호</label>
-                <input type="text" name="course_id" id="course_id" placeholder="COSE123">
+                <div data-role="fieldcontain">
+                    <label>학수번호</label>
+                    <input type="text" name="course_id" id="course_id" placeholder="COSE123">
+                </div>
 
-                <label>강의명</label>
-                <input type="text" name="title" id="title" placeholder="알고리즘">
+                <div data-role="fieldcontain">
+                    <label>강의명</label>
+                    <input type="text" name="title" id="title" placeholder="알고리즘">
+                </div>
 
-                <label>교수명</label>
-                <input type="text" name="professor" id="professor" placeholder="김현철">
+                <div data-role="fieldcontain">
+                     <label>교수명</label>
+                    <input type="text" name="professor" id="professor" placeholder="김현철">
+                </div>
 
-                <label>강의실</label>
-                <input type="text" name="classroom" id="classroom" placeholder="정보통신관 202호">
+               
+                <div data-role="fieldcontain">
+                    <label>강의실</label>
+                    <input type="text" name="classroom" id="classroom" placeholder="정보통신관 202호">
+                </div>
 
-                <label>강의시간</label>
-                <input type="text" name="time" id="time" placeholder="15:00~16:15">
+                <div data-role="fieldcontain">
+                    <label>강의시간</label>
+                    <input type="text" name="time" id="time" placeholder="15:00~16:15">
+                </div>
             </div>
         </form>
 
