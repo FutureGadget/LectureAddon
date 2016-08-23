@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Study Helper</title>
+
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0,
+    maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" >
+
+    <!--jquey Mobile CDN -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+	<div data-role="page">
+		<div data-role="header" data-position="fixed">
+			<h1>강의리스트</h1>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview" data-inset="true" data-filter="true">
+				<li>
+					<a id="test" href="/lecture">
+	                    <h3>운영체제</h3>
+	                   	<p> 김현철 </p>
+	                </a>
+	                <a href="#" data-icon="star"></a>
+                </li>
+				<li>
+					<a id="test" href="/lecture">
+	                    <h3>알고리즘</h3>
+	                   	<p> 박성빈 </p>
+	                </a>
+	                <a href="#" data-icon="star"></a>
+				</li>
+				<li>
+					<a id="test" href="/lecture">
+	                    <h3>데이터베이스</h3>
+	                   	<p> 정연돈 </p>
+	                </a>
+	                <a href="#" data-icon="star"></a>
+				</li>
+				<li>
+					<a id="test" href="/lecture">
+	                    <h3>이산수학</h3>
+	                   	<p> 박성빈 </p>
+	                </a>
+	                <a href="#" data-icon="star"></a>
+				</li>
+
+			</ul>
+		</div>
+		<div data-role="footer" data-role="footer" data-position="fixed">
+			 <a id="cbutton" data-role="button" href="/main" data-icon="check" data-iconpos="top" style="width:100%">
+            강의만들러 가기
+        	</a>
+		</div>
+	</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+</body>
+</html>
