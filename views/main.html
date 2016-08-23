@@ -12,24 +12,56 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
+    <link rel="stylesheet" href="stylesheets/courseAdd.css">
 </head>
 <body>
 <div id="home" data-role="page">
     <div data-role="header">
-        <h4>header</h4>
+        <h1>강의추가</h1>
+        <!-- year semester course_id title professor classroom time-->
     </div>
     <div data-role="contents">
-        <ul data-role="listview">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+        <form method="post" action="#">
+            <div class="ui-field-contain">
+
+                <label>년도</label>
+                <select name="year" id="year" placeholder="2016">
+                    <option value="mon">2016</option>
+                    <option value="tue">2015</option>
+                    <option value="wed">2014</option>
+                </select>
+
+                <label>학기</label>
+                <select name="semester" id="semester">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+
+                <label>학수번호</label>
+                <input type="text" name="course_id" id="course_id" placeholder="COSE123">
+
+                <label>강의명</label>
+                <input type="text" name="title" id="title" placeholder="알고리즘">
+
+                <label>교수명</label>
+                <input type="text" name="professor" id="professor" placeholder="김현철">
+
+                <label>강의실</label>
+                <input type="text" name="classroom" id="classroom" placeholder="정보통신관 202호">
+
+                <label>강의시간</label>
+                <input type="text" name="time" id="time" placeholder="15:00~16:15">
+            </div>
+        </form>
+
     </div>
-    <div data-role="footer">
+    <div id="footer" data-role="footer" data-position="fixed">
+        <a id="cbutton" data-role="button" href="#" data-icon="check" data-iconpos="top">
+            강의만들기
+        </a>
     </div>
 </div>
-
+   
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="javascripts/index.js"></script>
 </body>

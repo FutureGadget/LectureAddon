@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main page Login</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="stylesheets/login.css">
 
     <!--jquey Mobile CDN -->
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
 
@@ -25,7 +25,6 @@
             <div class="tab-content">
                 <div id="signin">
                     <h1>로그인 하세요</h1>
-                    <form action="#" method="get" id="login_form">
                         <div class="field-wrap">
                             <label>ID</label>
                             <input type="text" id="login_id">
@@ -35,13 +34,17 @@
                             <label>Password</label>
                             <input type="text" id="login_passwd">
                         </div>
-                        <button type="submit" class="button button-block"/>로그인</button>
-                    </form>
+                        <button type="submit" class="button button-block" onclick="" />로그인</button>
                 </div><!-- signin -->
 
                 <div id="signup">
                     <h1>무료로 가입하세요</h1>
-                    <form action="#" method="get" id="join_form">
+                           <fieldset data-role="controlgroup" data-type="horizontal" >
+                               <label>학생</label>
+                               <input type="radio" id="student" value="student">
+                               <label>매니저(교수/조교)</label>
+                               <input type="radio" id="professor" value="professor">
+                           </fieldset>
                         <div class="field-wrap">
                             <label>이름</label>
                             <input type="text" id="name">
@@ -56,13 +59,13 @@
                             <label>비밀번호</label>
                             <input type="password" id="join_passwd">
                         </div>
-                        <button type="submit" class="button button-block"/>가입하기</button>
-                    </form>
+                        <button type="submit" class="button button-block" onclick="" />가입하기</button>
                 </div><!-- signup -->
             </div> <!-- tab-content -->
         </div><!-- data-role main -->
     </div>
 
 <script src="javascripts/index.js"></script>
+<script src="javascripts/login.js"></script>
 </body>
 </html>

@@ -76,7 +76,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-input, textarea {
+.field-wrap input {
     font-size: 22px;
     display: block;
     width: 100%;
@@ -90,16 +90,12 @@ input, textarea {
     transition: border-color .25s ease, box-shadow .25s ease;
 }
 
-input:focus, textarea:focus {
+input:focus {
     outline: 0;
     border-color: #1ab188;
 }
 
-textarea {
-    border: 2px solid #a0b3b0;
-    resize: vertical;
-}
-label{
+label {
     color: rgba(255, 255, 255, 0.5);
 }
 
