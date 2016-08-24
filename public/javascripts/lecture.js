@@ -56,7 +56,7 @@ $("#qbutton").on("click", function() {
                 data: qdata,
                 success: function(data) { // data returned from the server (dao). The data must contain id field.
                     addQuestion(data, true);
-                    // socket.emit('add question', data);
+                    socket.emit('add question', data);
                 }
             });
             $('#qtitle').val('');
