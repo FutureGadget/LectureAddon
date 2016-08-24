@@ -6,6 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
+
+/// mongoose test in app.js
+var mongoose = require('mongoose');
+
 // controllers
 var login = require('./controllers/login');
 var qsubmit = require('./controllers/WriteController');
