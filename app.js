@@ -6,12 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-
-/// mongoose test in app.js
-var mongoose = require('mongoose');
-
 // controllers
 var login = require('./controllers/login');
+var join = require('./controllers/join');
 var qsubmit = require('./controllers/WriteController');
 var comment = require('./controllers/WriteCommentController');
 
@@ -37,9 +34,9 @@ app.use(session({
 
 // use controller app
 app.use('/login', login);
+app.use('/join', join);
 app.use('/qsubmit', qsubmit);
 app.use('/comment', comment);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

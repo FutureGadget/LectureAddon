@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/lectureAddon');
 
 var userSchema = mongoose.Schema({
 		name: String,

@@ -12,6 +12,5 @@ dao.join = function(data){
 	});
 
 	userJoin.save();
-
 }
 module.exports = dao;
