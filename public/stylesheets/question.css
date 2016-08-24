@@ -6,16 +6,3 @@ ul li a {
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
-
-#qbutton {
-    width: 100%;
-}
-#qform {
-    display: none;
-}
-#footer {
-    text-align: center;
-}
-#footer form {
-    text-align: left;
-}
