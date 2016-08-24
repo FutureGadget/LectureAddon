@@ -1,15 +1,25 @@
 .ui-icon-myIcon:after {
     background-image: url("../images/icons/ic_help_white_18dp_2x.png");
 }
-#qbutton {
+#lecture_footer #bAsk {
     width: 100%;
 }
-#qform {
-    display: none;
+
+#lecture_footer #bSubmit {
+	width: 44%;
+	display: none;
 }
-#footer {
+
+#lecture_footer #bCancel {
+	width: 44%;
+	display: none;
+}
+
+#lecture_footer {
     text-align: center;
 }
-#footer form {
+
+#lecture_footer form {
+    display: none;
     text-align: left;
 }
