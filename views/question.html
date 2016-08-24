@@ -46,7 +46,17 @@
     </div>
     <div id="question_footer" data-role="footer" data-position="fixed">
         <a id="bComment" data-role="button" href="#" data-icon="check" data-iconpos="top"
-        onclick="commentButtonClicked()">댓글달기</a>
+        onclick="comment()">댓글달기</a>
+        <fieldset class='ui-grid-a'>
+            <div class="ui-block-a">
+                <a id="bSubmit" data-icon="check" data-iconpos="top" data-role='button'
+                    onclick="submitComment()">제출</a>
+            </div>
+            <div class="ui-block-b">
+                <a id="bCancel" data-icon="delete" data-iconpos="top" data-role='button'
+                    onclick="closeComment()">취소</a>    
+            </div>
+        </fieldset>
         <form>
             <div class="ui-field-contain">
                 <textarea class="textEditor" id="content"></textarea>

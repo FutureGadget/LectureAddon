@@ -11,6 +11,16 @@ ul li a {
     width: 100%;
 }
 
+#question_footer #bSubmit {
+	width: 98%;
+	display: none;
+}
+
+#question_footer #bCancel {
+	width: 98%;
+	display: none;
+}
+
 #question_footer {
     text-align: center;
 }

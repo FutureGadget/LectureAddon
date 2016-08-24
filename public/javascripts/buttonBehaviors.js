@@ -31,15 +31,35 @@ function addQuestion(data, removable) {
 }
 
 function ask() {
+    $("#lecture_footer .textEditor").jqte();
     $("#lecture_footer form").slideToggle();
+    $("#lecture_footer #bAsk").css("display", "none");
+    $("#lecture_footer #bSubmit").css("display", "block");
+    $("#lecture_footer #bCancel").css("display", "block");
+}
+
+function closeQuestion() {
+    $("#lecture_footer form").slideToggle();
+    $("#lecture_footer #bAsk").css("display", "block");
+    $("#lecture_footer #bSubmit").css("display", "none");
+    $("#lecture_footer #bCancel").css("display", "none");
+    $("#lecture_footer .textEditor").jqte();
+}
+
+function closeComment() {
+    $("#question_footer form").slideToggle();
+    $("#question_footer #bAsk").css("display", "block");
+    $("#question_footer #bSubmit").css("display", "none");
+    $("#question_footer #bCancel").css("display", "none");
+    $("#question_footer .textEditor").jqte();
 }
 
 function comment() {
-
-}
-
-function cancel() {
-
+    $("#question_footer .textEditor").jqte();
+    $("#question_footer form").slideToggle();
+    $("#question_footer #bComment").css("display", "none"); 
+    $("#question_footer #bSubmit").css("display", "block");
+    $("#question_footer #bCancel").css("display", "block");
 }
 
 function submitQuestion() {
