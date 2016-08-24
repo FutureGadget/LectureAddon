@@ -3,17 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>question</title>
-    <!-- 모바일 환경에 최적화 하기 위해 확대,축소기능 제한 -->
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0,
-          maximum-scale=1.0, minimum-scale=1.0,
-          user-scalable=no">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
-    <link rel="stylesheet" href="external_plugins/jqueryte/jquery-te-1.4.0.css">
-    <link rel="stylesheet" href="stylesheets/question.css">
 </head>
 <body>
 <div id="home" data-role="page">
+    <link rel="stylesheet" href="stylesheets/question.css">
     <div data-role="header" data-position="fixed">
         <h1>Title</h1>
         <a href="#" data-rel="back">목록으로가기</a>
@@ -60,12 +53,7 @@
             </div>
         </form>
     </div>
+    <script src="javascripts/question.js"></script>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
-<script src="./external_plugins/jqueryte/jquery-te-1.4.0.min.js" charset="utf-8"></script>
-<script src="/socket.io/socket.io.js"></script>
-<script src="javascripts/question.js"></script>
 </body>
 </html>

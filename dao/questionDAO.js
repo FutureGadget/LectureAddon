@@ -9,12 +9,12 @@ dao.write = function(data) {
 		title: data.title,
 		content: data.content
 	});
-	item.save(function(err, result){
+	item.save(
+		function(err, result){
 		if (err) return console.error(err);
 		else {
-			res = result;
+			return result;
 		}
 	});
-	return res;
 };
 module.exports = dao;
