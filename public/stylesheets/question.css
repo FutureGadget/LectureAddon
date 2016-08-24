@@ -7,15 +7,15 @@ ul li a {
     overflow-wrap: break-word;
 }
 
-#commentbutton {
+#bComment {
     width: 100%;
 }
-#cform {
+
+#question_footer form {
     display: none;
-}
-#footer {
-    text-align: center;
-}
-#footer form {
     text-align: left;
+}
+
+#question_footer {
+    text-align: center;
 }
