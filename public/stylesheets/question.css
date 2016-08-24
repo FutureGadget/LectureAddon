@@ -6,3 +6,16 @@ ul li a {
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
+
+#commentbutton {
+    width: 100%;
+}
+#cform {
+    display: none;
+}
+#footer {
+    text-align: center;
+}
+#footer form {
+    text-align: left;
+}

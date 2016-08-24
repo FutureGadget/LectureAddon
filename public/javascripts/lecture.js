@@ -77,21 +77,21 @@ function questionButtonClicked() {
 };
 
 function commentButtonClicked() {
-    $("#qform").slideToggle();
-    if ($("#qform").attr("class")=='hidden') {
-        changeButtonIcon($("#qbutton"), 'delete', 'myIcon', '취소')
-            .attr("id", "cbutton")
+    $(".textEditor").jqte();
+    $("#cform").slideToggle();
+    if ($("#cform").attr("class")=='hidden') {
+        changeButtonIcon($("#commentbutton"), 'delete', 'myIcon', '취소')
+            .attr("id", "cancelbutton")
             .css("width", "44%");
-        $("#qform").attr("class","visible");
+        $("#cform").attr("class","visible");
 
-        var button = $("#cbutton").clone();
+        var button = $("#cancelbutton").clone();
         changeButtonIcon(button, 'check', 'delete', '제출')
-            .attr("id", "sbutton")
-        $("#cbutton").before(button);
+            .attr("id", "submitcomment")
+        $("#cancelbutton").before(button);
         button.on("click",function(){
             var qdata = {
-                title: $('#qtitle').val(),
-                content: $('.textEditor').val()
+                content: $('#commentContent').val()
             };
             $.ajax({
                 url: 'http://localhost:3000/comment',
@@ -103,16 +103,15 @@ function commentButtonClicked() {
                     
                 }
             });
-            $('#qtitle').val('');
             $('.textEditor').jqteVal('');
-            $('#cbutton').click();
+            $('#cancelbutton').click();
         });
     } else {
-        changeButtonIcon($("#cbutton"), 'myIcon', 'delete', '댓글달기')
-            .attr("id", "qbutton")
+        changeButtonIcon($("#cancelbutton"), 'myIcon', 'delete', '댓글달기')
+            .attr("id", "commentbutton")
             .css("width", "100%");
-        $("#qform").attr("class","hidden");
-        $("#sbutton").remove();
+        $("#cform").attr("class","hidden");
+        $("#submitcomment").remove();
     }
 };
 
