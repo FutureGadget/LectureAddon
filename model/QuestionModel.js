@@ -1,11 +1,11 @@
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
+// //DB connection
+// mongoose.connect('mongodb://localhost/lectureaddon');
 
-var questionSchema = mongoose.Schema({
-		writer: String,
-		title: String,
-		content: String
-	});
+// var questionSchema = mongoose.Schema({
+// 		writer: String,
+// 		title: String,
+// 		content: String
+// 	});
 
-var Question = mongoose.model('Question', questionSchema);
-
-module.exports = Question;
+// module.exports = mongoose.model('Question', questionSchema);

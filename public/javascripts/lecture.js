@@ -35,85 +35,18 @@ function addQuestion(data, removable) {
 
  Remove the "취소하기" button when clicked and close the input form.
  */
-function questionButtonClicked() {
-    $("#qform").slideToggle();
-    if ($("#qform").attr("class")=='hidden') {
-        changeButtonIcon($("#qbutton"), 'delete', 'myIcon', '취소')
-            .attr("id", "cbutton")
-            .css("width", "44%");
-        $("#qform").attr("class","visible");
 
-        var button = $("#cbutton").clone();
-        changeButtonIcon(button, 'check', 'delete', '제출')
-            .attr("id", "sbutton")
-        $("#cbutton").before(button);
-        button.on("click",function(){
-            var qdata = {
-                title: $('#qtitle').val(),
-                content: $('.textEditor').val()
-            };
-            $.ajax({
-                url: 'http://localhost:3000/qsubmit',
-                dataType: 'jsonp',
-                jsonp: 'callback',
-                type: 'GET',
-                data: qdata,
-                success: function(data) { // data returned from the server (dao). The data must contain id field.
-                    addQuestion(data, true);
-                    socket.emit('add question', data);
-                }
-            });
-            $('#qtitle').val('');
-            $('.textEditor').jqteVal('');
-            $('#cbutton').click();
-        });
-    } else {
-        changeButtonIcon($("#cbutton"), 'myIcon', 'delete', '질문하기')
-            .attr("id", "qbutton")
-            .css("width", "100%");
-        $("#qform").attr("class","hidden");
-        $("#sbutton").remove();
-    }
-};
-
-function commentButtonClicked() {
-    $(".textEditor").jqte();
-    $("#cform").slideToggle();
-    if ($("#cform").attr("class")=='hidden') {
-        changeButtonIcon($("#commentbutton"), 'delete', 'myIcon', '취소')
-            .attr("id", "cancelbutton")
-            .css("width", "44%");
-        $("#cform").attr("class","visible");
-
-        var button = $("#cancelbutton").clone();
-        changeButtonIcon(button, 'check', 'delete', '제출')
-            .attr("id", "submitcomment")
-        $("#cancelbutton").before(button);
-        button.on("click",function(){
-            var qdata = {
-                content: $('#commentContent').val()
-            };
-            $.ajax({
-                url: 'http://localhost:3000/comment',
-                dataType: 'jsonp',
-                jsonp: 'callback',
-                type: 'GET',
-                data: qdata,
-                success: function(data) { // data returned from the server (dao). The data must contain id field.
-                    
-                }
-            });
-            $('.textEditor').jqteVal('');
-            $('#cancelbutton').click();
-        });
-    } else {
-        changeButtonIcon($("#cancelbutton"), 'myIcon', 'delete', '댓글달기')
-            .attr("id", "commentbutton")
-            .css("width", "100%");
-        $("#cform").attr("class","hidden");
-        $("#submitcomment").remove();
-    }
-};
+// $.ajax({
+//     url: 'http://localhost:3000/qsubmit',
+//     dataType: 'jsonp',
+//     jsonp: 'callback',
+//     type: 'GET',
+//     data: qdata,
+//     success: function(data) { // data returned from the server (dao). The data must contain id field.
+//         addQuestion(data, true);
+//         socket.emit('add question', data);
+//     }
+// });
 
 /*
  Change the button's text and icon.

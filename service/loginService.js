@@ -1,5 +1,5 @@
 var dao = require('../dao/loginDAO');
-var database = require('../common/DBConnection');
+// var database = require('../common/DBConnection');
 
 var service = {};
 
