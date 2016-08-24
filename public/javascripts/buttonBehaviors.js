@@ -29,12 +29,26 @@ function addQuestion(data, removable) {
     parent.prepend(li);
     parent.listview('refresh');
 }
-/*
- Change "질문하기" button to "취소하기" button and add the submit button when the "질문하기" button is clicked
- and slide down the input form.
 
- Remove the "취소하기" button when clicked and close the input form.
- */
+function ask() {
+    $("#lecture_footer form").slideToggle();
+}
+
+function comment() {
+
+}
+
+function cancel() {
+
+}
+
+function submitQuestion() {
+
+}
+
+function submitComment() {
+
+}
 
 // $.ajax({
 //     url: 'http://localhost:3000/qsubmit',
@@ -49,17 +63,6 @@ function addQuestion(data, removable) {
 // });
 
 /*
- Change the button's text and icon.
- Returns the changed button.
- */
-function changeButtonIcon(button, newIcon, oldIcon, text) {
-    button.text(text);
-    button.attr("data-icon", newIcon);
-    button.addClass('ui-icon-'+newIcon).removeClass('ui-icon-'+oldIcon);
-    return button;
-}
-
-/*
  Apply jqueryte
  */
-$(".textEditor").jqte();
+// $(".textEditor").jqte();

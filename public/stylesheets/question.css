@@ -11,11 +11,11 @@ ul li a {
     width: 100%;
 }
 
+#question_footer {
+    text-align: center;
+}
+
 #question_footer form {
     display: none;
     text-align: left;
-}
-
-#question_footer {
-    text-align: center;
 }

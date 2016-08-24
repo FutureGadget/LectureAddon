@@ -95,11 +95,11 @@
     </div>
     <div id="lecture_footer" data-role="footer" data-position="fixed">
         <a id="bAsk" data-role="button" href="#" data-icon="myIcon" data-iconpos="top"
-        onclick="questionButtonClicked()">질문하기</a>
+        onclick="ask()">질문하기</a>
         <a id="bSubmit" data-role="button" href="#" data-icon="myIcon" data-iconpos="top"
-        onclick="questionButtonClicked() class='ui-hidden-accessible'">제출</a>
+        onclick="submitQuestion()" class='ui-hidden-accessible'">제출</a>
         <a id="bCancel" data-role="button" href="#" data-icon="myIcon" data-iconpos="top"
-        onclick="questionButtonClicked() class='ui-hidden-accessible'">취소</a>
+        onclick="cancel() class='ui-hidden-accessible'">취소</a>
         <form>
             <div class="ui-field-contain">
                 <input type="text" name="title" id="qtitle" placeholder="어떤 주제에 대한 질문인지 말해주세요.ex) ~를 다시 설명해주세요.">
@@ -113,6 +113,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js" charset="utf-8"></script>
 <script src="external_plugins/jqueryte/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script src="javascripts/lecture.js"></script>
+<script src="javascripts/buttonBehaviors.js"></script>
 </body>
 </html>
