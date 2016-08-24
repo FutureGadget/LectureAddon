@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var Question = require('../model/QuestionModel');
+
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/lectureaddon');
 
@@ -15,12 +17,6 @@ db.once('open', function () {
 var dao = {};
 
 dao.write = function(data) {
-	var questionSchema = mongoose.Schema({
-		writer: String,
-		title: String,
-		content: String
-	});
-	var Question = mongoose.model('Question', questionSchema);
 	var item = new Question({
 		writer: data.writer,
 		title: data.title,
@@ -29,7 +25,6 @@ dao.write = function(data) {
 	console.log(item);
 	item.save(function(err, imo){
 		if (err) return console.error(err);
-		console.log(item+' has been saved in the DB.');
 	});
 };
 module.exports = dao;
