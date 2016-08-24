@@ -1,12 +1,16 @@
 var socket = io.connect('http://localhost:3000');
 
 /**
- * Add newly submitted quesitons to the list
+ * Broadcast listview chnages to other clients
+ * for syncronization.
  */
 socket.on('add question', function(data) {
     addQuestion(data, false);
 });
 
+/**
+ * Add newly submitted quesitons to the list
+ */
 function addQuestion(data, removable) {
     var parent = $('#qlist');
     var li = $('<li></li>');

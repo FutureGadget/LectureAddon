@@ -9,6 +9,7 @@ var session = require('express-session');
 // controllers
 var login = require('./controllers/login');
 var qsubmit = require('./controllers/WriteController');
+var comment = require('./controllers/WriteCommentController');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use(session({
 // use controller app
 app.use('/login', login);
 app.use('/qsubmit', qsubmit);
+app.use('/comment', comment);
 
 
 // catch 404 and forward to error handler
