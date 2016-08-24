@@ -6,16 +6,30 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-
-/// mongoose test in app.js
-var mongoose = require('mongoose');
-
 // controllers
 var login = require('./controllers/login');
+var join = require('./controllers/join');
 var qsubmit = require('./controllers/WriteController');
 var comment = require('./controllers/WriteCommentController');
 
 var app = express();
+
+
+// MongoDB mongoose TEST in app.js
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/lectureAddon');
+
+var db = mongoose.connection;
+db.on('error',function(){
+	console.log("DB 연결 실패");
+});
+db.once('open',function(){
+	// CONNECTED TO MongoDB Server
+	console.log("CONNECTED TO MongoDB Server");
+});
+// MongoDB mongoose TEST in app.js
+
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -37,9 +51,9 @@ app.use(session({
 
 // use controller app
 app.use('/login', login);
+app.use('/join', join);
 app.use('/qsubmit', qsubmit);
 app.use('/comment', comment);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

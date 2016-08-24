@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-
 var userSchema = mongoose.Schema({
 		name: String,
 		email: String,
@@ -7,6 +6,4 @@ var userSchema = mongoose.Schema({
 		authority: String
 	});
 
-var user = mongoose.model('user', userSchema);
-
-module.exports = user;
+module.exports = mongoose.model('user', userSchema);
