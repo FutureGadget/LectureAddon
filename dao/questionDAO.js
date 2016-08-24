@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-var db = mongoose.createConnection('mongodb://localhost/lectureaddon');
+mongoose.connect('mongodb://localhost/lectureaddon');
 
+var db = mongoose.connection;
 db.on('error', function (err) {
 	console.log('connection error', err);
 });
