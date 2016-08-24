@@ -4,9 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 // controllers
 var login = require('./controllers/login');
+var qsubmit = require('./controllers/WriteController');
 
 var app = express();
 
@@ -17,11 +19,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 // Users can directly access to views (html files)
 app.use(express.static(path.join(__dirname, 'views')));
 
+// Use express-session sub-app to manage sessions
+app.use(session({
+	resave: false,
+	saveUninitialized: false,
+	secret: 'There is no cow level.'
+}));
+
 // use controller app
 app.use('/login', login);
+app.use('/qsubmit', qsubmit);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

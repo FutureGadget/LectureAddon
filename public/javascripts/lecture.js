@@ -1,3 +1,30 @@
+var socket = io.connect('http://localhost:3000');
+
+/**
+ * Add newly submitted quesitons to the list
+ */
+socket.on('add question', function(data) {
+    addQuestion(data, false);
+});
+
+function addQuestion(data, removable) {
+    var parent = $('#qlist');
+    var li = $('<li></li>');
+    var a = $('<a></a>');
+    var item = a.clone().attr('id',data._id).attr('href','question.html?id='+data._id)
+        .append($('<h3></h3>').text(data.title))
+        .append($('<span></span>').attr('class','ui-li-count').text('0'));
+    var splitbutton = a.clone();
+    if (removable) {
+        splitbutton.attr('data-icon', 'delete');
+    } else {
+        splitbutton.attr('data-icon', 'star');
+    }
+    li.append(item);
+    li.append(splitbutton);
+    parent.prepend(li);
+    parent.listview('refresh');
+}
 /*
  Change "질문하기" button to "취소하기" button and add the submit button when the "질문하기" button is clicked
  and slide down the input form.
@@ -17,9 +44,25 @@ $("#qbutton").on("click", function() {
             .attr("id", "sbutton")
         $("#cbutton").before(button);
         button.on("click",function(){
-            // To do
-            // Process user submission
-        })
+            var qdata = {
+                title: $('#qtitle').val(),
+                content: $('.textEditor').val()
+            };
+            $.ajax({
+                url: 'http://localhost:3000/qsubmit',
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                type: 'GET',
+                data: qdata,
+                success: function(data) { // data returned from the server (dao). The data must contain id field.
+                    addQuestion(data, true);
+                    // socket.emit('add question', data);
+                }
+            });
+            $('#qtitle').val('');
+            $('.textEditor').jqteVal('');
+            $('#cbutton').click();
+        });
     } else {
         changeButtonIcon($("#cbutton"), 'myIcon', 'delete', '질문하기')
             .attr("id", "qbutton")
