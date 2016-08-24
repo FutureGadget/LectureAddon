@@ -6,9 +6,7 @@ var service = {};
 service.login = function(data){
 	// open connection
 	dao.conn = database.getConn();
-	
 	var result = dao.login(data);
-	
 };
 
 module.exports = service;
