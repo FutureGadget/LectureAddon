@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var path = require('path');
-var session = require('express-session');
-
+var service = require('../service/loginService');
 router.post('/', function(req, res, next){
-	res.set('Content-Type', 'text/plain');
-	res.send('test');
+
+	// 세션에 저장하고
+	req.session.userID = req.body.login_id;
+
+	var result = service();
+
 })
 
 module.exports = router;
