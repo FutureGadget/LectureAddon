@@ -1,12 +1,4 @@
-var mongoose = require('mongoose');
-
-var questionSchema = mongoose.Schema({
-		writer: String,
-		title: String,
-		content: String
-	});
-
-var Question = mongoose.model('Question', questionSchema);
+var Question = require('../model/userModel');
 
 var dao = {};
 

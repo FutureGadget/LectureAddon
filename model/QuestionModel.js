@@ -1,11 +1,9 @@
-// var mongoose = require('mongoose');
-// //DB connection
-// mongoose.connect('mongodb://localhost/lectureaddon');
+var mongoose = require('mongoose');
 
-// var questionSchema = mongoose.Schema({
-// 		writer: String,
-// 		title: String,
-// 		content: String
-// 	});
+var questionSchema = mongoose.Schema({
+		writer: String,
+		title: String,
+		content: String
+	});
 
-// module.exports = mongoose.model('Question', questionSchema);
+module.exports = mongoose.model('Question', questionSchema);
