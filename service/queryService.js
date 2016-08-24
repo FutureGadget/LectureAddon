@@ -1,6 +1,7 @@
 var dao = require('../dao/questionDAO');
 var database = require('../common/DBConnection');
 var service = {};
+
 service.write = function(insertData) {
 	// open connection
 	dao.conn = database.getConn();
