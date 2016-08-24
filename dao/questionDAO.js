@@ -1,7 +1,4 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/lectureaddon');
-var db = mongoose.connection;
-db.once('open', function(){console.log('connected')});
 
 var questionSchema = mongoose.Schema({
 		writer: String,

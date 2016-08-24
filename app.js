@@ -14,6 +14,23 @@ var comment = require('./controllers/WriteCommentController');
 
 var app = express();
 
+
+// MongoDB mongoose TEST in app.js
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/lectureAddon');
+
+var db = mongoose.connection;
+db.on('error',function(){
+	console.log("DB 연결 실패");
+});
+db.once('open',function(){
+	// CONNECTED TO MongoDB Server
+	console.log("CONNECTED TO MongoDB Server");
+});
+// MongoDB mongoose TEST in app.js
+
+
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));

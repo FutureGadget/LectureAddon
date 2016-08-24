@@ -10,7 +10,6 @@ dao.join = function(data){
 		password : data.passwd,
 		authority : data.choice,
 	});
-
 	userJoin.save();
 }
 module.exports = dao;
