@@ -4,7 +4,10 @@ var express = require('express'),
 
 router.get('/', function(req, res){
 	req.query.writer = req.session.username;
-	var result = service.write(req.query);
-	res.jsonp(result);
+	service.write(req.query).then(function(item){
+		res.jsonp(item);
+	});
+	// res.jsonp({_id: '000', title: 'hello', content: 'good'});
 });
+
 module.exports = router;

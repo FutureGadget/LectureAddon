@@ -8,6 +8,10 @@ socket.on('add question', function(data) {
     addQuestion(data, false);
 });
 
+socket.on('add comment', function(data) {
+    addComment(data, false);
+});
+
 /**
  * Add newly submitted quesitons to the list
  */
@@ -48,7 +52,7 @@ function closeQuestion() {
 
 function closeComment() {
     $("#question_footer form").slideToggle();
-    $("#question_footer #bAsk").css("display", "block");
+    $("#question_footer #bComment").css("display", "block");
     $("#question_footer #bSubmit").css("display", "none");
     $("#question_footer #bCancel").css("display", "none");
     $("#question_footer .textEditor").jqte();
@@ -63,24 +67,57 @@ function comment() {
 }
 
 function submitQuestion() {
-
+    $.ajax({
+        url: 'http://localhost:3000/qsubmit',
+        dataType: 'jsonp',
+        jsonp: 'callback',
+        type: 'GET',
+        data: {
+            title: $('#lecture_footer input').val(),
+            content: $('#lecture_footer textarea').val()
+        },
+        success: function(data) {
+            addQuestion(data, true);
+            socket.emit('add question', data);
+            $('#lecture_footer #bCancel').click(); 
+            $('#lecture_footer input').val('');
+            $('#lecture_footer .textEditor').val('');
+        }
+    });
 }
 
 function submitComment() {
-
+    $.ajax({
+        url: 'http://localhost:3000/comment',
+        dataType: 'jsonp',
+        jsonp: 'callback',
+        type: 'GET',
+        data: {
+            question_id: $('#qid').text(),
+            content: $('#lecture_footer textarea').val()
+        },
+        success: function(data) {
+            socket.emit('add comment', data);
+            $('#question_footer #bCancel').click();
+            $('#question_footer .textEditor').val('');
+        }
+    });
 }
 
-// $.ajax({
-//     url: 'http://localhost:3000/qsubmit',
-//     dataType: 'jsonp',
-//     jsonp: 'callback',
-//     type: 'GET',
-//     data: qdata,
-//     success: function(data) { // data returned from the server (dao). The data must contain id field.
-//         addQuestion(data, true);
-//         socket.emit('add question', data);
-//     }
-// });
+function addComment(data, removable) {
+    var li = $('<li></li>').attr('id', data.num);
+    var a = $('<a></a>').text(data.userID + ':' + data.content);
+    var sp = $('<a></a>');
+    if (removable) {
+        sp.attr('data-icon','delete');
+    }
+    li.append(a);
+    li.append(sp);
+    $('#commentList').append(li);
+    $('#commentList').listview('refresh');
+}
+
+
 
 /*
  Apply jqueryte

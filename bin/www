@@ -31,9 +31,19 @@ server.on('error', onError);
 server.on('listening', onListening);
 io.listen(server); // socket waits for a client connection
 
+/**
+ * A websocket is connected.
+ * All socket events must be located inside the callback function.
+ */
 io.on('connection', function(socket){
+  // broadcast questions to other students.
+  // TODO: Must be separated by the class(room).
   socket.on('add question', function(data){
     socket.broadcast.emit('add question', data);
+  });
+
+  socket.on('add comment', function(data) {
+    socket.broadcast.emit('add comment', data);
   });
 });
 
