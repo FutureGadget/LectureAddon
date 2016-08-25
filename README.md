@@ -50,5 +50,7 @@
   3. 질문 리스트 출력
 
 #3. 개발환경
-  * Front End : jquery mobile
-  * Back End : node.js + mongo db
+  * Front End
+    - jquery mobile
+  * Back End
+    - node.js + mongo db
