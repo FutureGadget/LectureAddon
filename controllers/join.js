@@ -3,14 +3,14 @@ var router = express.Router();
 var service = require('../service/joinService');
 
 router.post('/', function(req, res, next){
-	var result = service.join(req.body);
-	result.then(function(doc){
-
-		if(!doc){
-			// 회원가입 실패
-
+	// service.join returns a Query object.
+	// A query object is a Promise object, which means it has
+	// "then" function.
+	service.join(req.body).then(function(email){
+		if (email == null) {
+			res.send({result: 'true'});
 		} else {
-			// 가입 성공
+			res.send({result: 'false'});
 		}
 	});
 });
