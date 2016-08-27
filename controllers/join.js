@@ -8,9 +8,9 @@ router.post('/', function(req, res, next){
 	// "then" function.
 	service.join(req.body).then(function(email){
 		if (email == null) {
-			res.send({result: 'true'});
+			res.send({success: true});
 		} else {
-			res.send({result: 'false'});
+			res.send({success: false});
 		}
 	});
 });

@@ -14,7 +14,6 @@
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-
     <div data-role="page" id="login">
         <div class="form">
             <ul class = "tab-group">
@@ -25,7 +24,7 @@
             <div class="tab-content">
                 <div id="signin">
                     <h1>로그인 하세요</h1>
-                    <form method="post" action="/login">
+                    <div>
                         <div class="field-wrap">
                             <label>ID</label>
                             <input type="email" name="login_id" id="login_id">
@@ -35,13 +34,13 @@
                             <label>Password</label>
                             <input type="password" name="login_passwd" id="login_passwd">
                         </div>
-                        <button type="submit" class="button button-block"/>로그인</button>
-                    </form>
+                        <button class="button button-block"/>로그인</button>
+                    </div>
                 </div><!-- signin -->
 
                 <div id="signup">
                     <h1>무료로 가입하세요</h1>
-                    <form method="post" action="/join">
+                    <div>
                         <fieldset data-role="controlgroup" data-type="horizontal" >
                            <label for="student">학생</label>
                            <input type="radio" name="choice" id="student" value="Student" checked>
@@ -61,8 +60,8 @@
                             <label>비밀번호</label>
                             <input type="password" id="join_passwd" name="passwd">
                         </div>
-                        <button type="submit" class="button button-block" />가입하기</button>
-                    </form>
+                        <button class="button button-block" onclick="signup()"/>가입하기</button>
+                    </div>
                 </div><!-- signup -->
             </div> <!-- tab-content -->
         </div><!-- data-role main -->
