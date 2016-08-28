@@ -18,17 +18,9 @@ function getUrl(name) {
  */
 var Page = function() {};
 
-Page.prototype.setPageUrl = function(url) {
-	this.pageUrl = url;
-}
-
 Page.prototype.setChangeData = function(data) {
 	this.changeData = data;
 }
-
-Page.prototype.getPageUrl = function() {
-	return this.url;
-};
 
 Page.prototype.getChangeData = function() {
 	return this.changeData;
