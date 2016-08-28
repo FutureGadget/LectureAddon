@@ -1,9 +1,9 @@
 var express = require('express'),
 	router = express.Router(),
-	service = require('../service/queryService');
+	service = require('../service/questionService');
 
 router.get('/', function(req, res){
-	req.query.writer = req.session.username;
+	req.query.writer = req.session.userID;
 	service.write(req.query).then(function(item){
 		res.jsonp(item);
 	});

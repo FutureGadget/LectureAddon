@@ -24,7 +24,7 @@ $('.tab a').on('click', function(e) {
  */
 function signup() {
 	$.ajax({
-		url: 'http://localhost:3000/join',
+		url: getUrl('/join'),
 		dataType: 'json',
 		type: 'POST',
 		data: {

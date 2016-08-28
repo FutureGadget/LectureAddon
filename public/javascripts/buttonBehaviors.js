@@ -1,33 +1,52 @@
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect(getUrl(''));
 
 /**
  * Broadcast listview chnages to other clients
  * for syncronization.
  */
-socket.on('add question', function(data) {
+ socket.on('add question', function(data) {
     addQuestion(data, false);
 });
 
-socket.on('add comment', function(data) {
+ socket.on('add comment', function(data) {
     addComment(data, false);
 });
 
 /**
  * Add newly submitted quesitons to the list
  */
-function addQuestion(data, removable) {
+ function addQuestion(data, removable) {
     var parent = $('#qlist');
     var li = $('<li></li>');
     var a = $('<a></a>');
-    var item = a.clone().attr('id',data._id).attr('href','question.html?id='+data._id)
-        .append($('<h3></h3>').text(data.title))
-        .append($('<span></span>').attr('class','ui-li-count').text('0'));
+    var item = a.clone()
+    .append($('<h3></h3>').text(data.title))
+    .append($('<span></span>').attr('class', 'ui-li-count').text('0'));
     var splitbutton = a.clone();
     if (removable) {
         splitbutton.attr('data-icon', 'delete');
     } else {
         splitbutton.attr('data-icon', 'star');
     }
+
+    item.on("click", function() {
+        $.ajax({
+            url: getUrl('/readQuestion'),
+            dataType: 'json',
+            data: {
+                id: data._id
+            },
+            type: 'GET',
+            success: function(data) {
+                pageInfo.setChangeData(data);
+                $(":mobile-pagecontainer")
+                .pagecontainer('change', getUrl('/question.html'), {
+                    role: 'page'
+                });
+            }
+        });
+    });
+
     li.append(item);
     li.append(splitbutton);
     parent.prepend(li);
@@ -61,14 +80,14 @@ function closeComment() {
 function comment() {
     $("#question_footer .textEditor").jqte();
     $("#question_footer form").slideToggle();
-    $("#question_footer #bComment").css("display", "none"); 
+    $("#question_footer #bComment").css("display", "none");
     $("#question_footer #bSubmit").css("display", "block");
     $("#question_footer #bCancel").css("display", "block");
 }
 
 function submitQuestion() {
     $.ajax({
-        url: 'http://localhost:3000/qsubmit',
+        url: getUrl('/qsubmit'),
         dataType: 'jsonp',
         jsonp: 'callback',
         type: 'GET',
@@ -79,7 +98,7 @@ function submitQuestion() {
         success: function(data) {
             addQuestion(data, true);
             socket.emit('add question', data);
-            $('#lecture_footer #bCancel').click(); 
+            $('#lecture_footer #bCancel').click();
             $('#lecture_footer input').val('');
             $('#lecture_footer .textEditor').val('');
         }
@@ -88,7 +107,7 @@ function submitQuestion() {
 
 function submitComment() {
     $.ajax({
-        url: 'http://localhost:3000/comment',
+        url: getUrl('/comment'),
         dataType: 'jsonp',
         jsonp: 'callback',
         type: 'GET',
@@ -109,7 +128,7 @@ function addComment(data, removable) {
     var a = $('<a></a>').text(data.userID + ':' + data.content);
     var sp = $('<a></a>');
     if (removable) {
-        sp.attr('data-icon','delete');
+        sp.attr('data-icon', 'delete');
     }
     li.append(a);
     li.append(sp);

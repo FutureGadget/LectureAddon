@@ -1,69 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>question</title>
 </head>
 <body>
-<div data-role="page">
-    <div data-role="header" data-position="fixed">
-        <h1>Title</h1>
-        <a href="#" data-rel="back">목록으로가기</a>
-    </div>
-    <div data-role="content">
-        <!--
-            Todo
-            1. get data from DBMS based on the question number (using query string id)
-            2. construct view according to the following structure
+    <div data-role="page">
+        <div id="question_header" data-role="header" data-position="fixed">
+            <h1>Title</h1>
+            <a href="#" data-rel="back">목록으로가기</a>
+            <a id="like" data-icon='heart'>좋아요</a>
+        </div>
+        <div id="content" data-role="content">
+        <!-- 
+            <h1>제목</h1>
+            <p>내용</p>
+            <ul id='commentList' data-role="listview">
+             <li id=1>
+                  <a href="">
+                      작성자: 내용
+                    </a>
+                    <a href="" data-icon="delete"></a>
+                </li>
+            </ul>
         -->
-        <h1>Title</h1>
-        <span id='qid' hidden>95819283</span>
-        <p>가나 다라 마바사아 자차카타파하 가나 자차카타파하 가나다
-            가나 다라 마바사아 자차카타다라 마바사아 자차카타파하다라 마바사아 자차카타파하
-            다라 마바사아 자차다라 마바사아 자차카타파하 마바사아 자차카타다라 마바사아 자차카타파하다라 마바사아 자차카타파하하
-            다라 마바사아 자차카타파하다라 마바사파하다라 마바사파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하
-            다라 마바사아 자차카타파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하
-            파다라 마바사아 자차카타파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하다라 마바사아 자차카타파하 가나다가나 다라 마바사아 자차카타파하
-            가나다
-        </p>
-        <ul id='commentList' data-role="listview">
-            <li id=1>
-                <a href="">
-                    조건휘 : 가나 다라마바사 아 자 차카타파 하 가나다라마 바사아자 차카 타 파하가 나다
-                </a>
-                <a href="" data-icon="delete"></a></li>
-            <li>
-                <a href="">
-                    조건휘 : 가나 다라마바사 아 자 차카타파 하 가나다라마 바사아자 차카 타 파하가 나다
-                </a>
-                <a href=""></a></li></li>
-            <li>
-                <a href="">
-                    조건휘 : 가나 다라마바사 아 자 차카타파 하 가나다라마 바사아자 차카 타 파하가 나다
-                </a>
-                <a href=""></a></li></li>
-            </li>
-        </ul>
-    </div>
-    <div id="question_footer" data-role="footer" data-position="fixed">
-        <a id="bComment" data-role="button" href="#" data-icon="check" data-iconpos="top"
-        onclick="comment()">댓글달기</a>
-        <fieldset class='ui-grid-a'>
-            <div class="ui-block-a">
-                <a id="bSubmit" data-icon="check" data-iconpos="top" data-role='button'
+        </div>
+        <div id="question_footer" data-role="footer" data-position="fixed">
+            <a id="bComment" data-role="button" href="#" data-icon="check" data-iconpos="top"
+            onclick="comment()">댓글달기</a>
+            <fieldset class='ui-grid-a'>
+                <div class="ui-block-a">
+                    <a id="bSubmit" data-icon="check" data-iconpos="top" data-role='button'
                     onclick="submitComment()">제출</a>
-            </div>
-            <div class="ui-block-b">
-                <a id="bCancel" data-icon="delete" data-iconpos="top" data-role='button'
+                </div>
+                <div class="ui-block-b">
+                    <a id="bCancel" data-icon="delete" data-iconpos="top" data-role='button'
                     onclick="closeComment()">취소</a>    
-            </div>
-        </fieldset>
-        <form>
-            <div class="ui-field-contain">
-                <textarea class="textEditor" id="content"></textarea>
-            </div>
-        </form>
+                </div>
+            </fieldset>
+            <form>
+                <div class="ui-field-contain">
+                    <textarea class="textEditor" id="content"></textarea>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 </body>
 </html>

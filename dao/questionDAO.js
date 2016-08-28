@@ -9,4 +9,12 @@ dao.write = function(data) {
 	return item.save(); // return a promise
 };
 
+dao.read = function(data) {
+	var query = Question.where({
+		_id: data.id
+	});
+
+	return query.findOne();
+}
+
 module.exports = dao;

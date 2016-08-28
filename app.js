@@ -11,6 +11,7 @@ var login = require('./controllers/login');
 var join = require('./controllers/join');
 var qsubmit = require('./controllers/WriteController');
 var comment = require('./controllers/WriteCommentController');
+var readQuestion = require('./controllers/ReadQuestionController');
 
 var app = express();
 
@@ -55,6 +56,7 @@ app.use('/login', login);
 app.use('/join', join);
 app.use('/qsubmit', qsubmit);
 app.use('/comment', comment);
+app.use('/readQuestion', readQuestion);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
